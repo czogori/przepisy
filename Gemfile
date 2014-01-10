@@ -48,3 +48,4 @@ end
 gem 'devise'
 gem 'rails_12factor'
 gem 'bootstrap-sass', '~> 3.0.3.0'
+gem 'font-awesome-rails'
