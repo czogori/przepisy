@@ -62,5 +62,7 @@ en:
 
 pl:
   devise:
+    failure:
+      unauthenticated: ""
     sessions:
       signed_in: ""
