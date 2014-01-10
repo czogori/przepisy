@@ -10,5 +10,5 @@
 	<div class="panel-body">Opis</div>
   	<div class="panel-footer"><%= raw @recipe.description %></div>
 </div>
-Data utworzenia: <%= raw @recipe.created_at %><br />
-Data ostatniej modyfikacji: <%= raw @recipe.updated_at %>
+<strong>Data utworzenia:</strong> <%= raw @recipe.created_at.strftime("%Y.%m.%d %H:%M:%S") %><br />
+<strong>Data ostatniej modyfikacji:</strong> <%= raw @recipe.updated_at.strftime("%Y.%m.%d %H:%M:%S") %>
