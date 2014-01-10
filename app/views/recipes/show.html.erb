@@ -1,19 +1,14 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @recipe.name %><%= link_to 'Edytuj', edit_recipe_path(@recipe), class: "btn btn-info btn-lg pull-right" %></h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @recipe.name %>
-</p>
+<div class="clearf"></div>
+<div class="panel panel-default">
+	<div class="panel-body">Składniki</div>
+  	<div class="panel-footer"><%= raw @recipe.items %></div>
+</div>
 
-<p>
-  <strong>Items:</strong>
-  <%= @recipe.items %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
-
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<div class="panel panel-default">
+	<div class="panel-body">Opis</div>
+  	<div class="panel-footer"><%= raw @recipe.description %></div>
+</div>
+Data utworzenia: <%= raw @recipe.created_at %><br />
+Data ostatniej modyfikacji: <%= raw @recipe.updated_at %>
