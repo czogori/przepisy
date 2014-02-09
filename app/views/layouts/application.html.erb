@@ -31,8 +31,13 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
           <ul class="nav nav-pills pull-right">
-              <li><%= link_to 'Dodaj nowy  przepis', new_recipe_path %></li>
-              <li><%= link_to 'Wyloguj', sign_out_path %></li>
+                <% if request.original_url =~ /users/ %>
+                    <li><%= link_to 'Dodaj nowego użytkownika', new_user_path %></li>
+                <% else %>
+                    <li><%= link_to 'Zarządzanie użytkownikami', users_path %></li>
+                    <li><%= link_to 'Dodaj nowy  przepis', new_recipe_path %></li>
+                <% end %>
+                <li><%= link_to 'Wyloguj', sign_out_path %></li>
           </ul>
         </div>
       </nav>
