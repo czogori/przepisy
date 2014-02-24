@@ -2,6 +2,7 @@ Przepisy::Application.routes.draw do
   devise_for :users
   resources :recipes
   resources :users
+  resources :photos
 
   devise_scope :user do
     get "sign_in", :to => "devise/sessions#new"

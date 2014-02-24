@@ -50,3 +50,6 @@ gem 'rails_12factor'
 gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'font-awesome-rails'
 gem 'gravatar_image_tag'
+gem "paperclip", "~> 3.0"
+gem "paperclip-dropbox", ">= 1.1.7"
+gem 'nprogress-rails'

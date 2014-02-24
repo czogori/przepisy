@@ -33,7 +33,10 @@
           <ul class="nav nav-pills pull-right">
                 <% if request.original_url =~ /users/ %>
                     <li><%= link_to 'Dodaj nowego użytkownika', new_user_path %></li>
+                <% elsif request.original_url =~ /photos/ %>
+                    <li><%= link_to 'Dodaj nowe zdjęcie', new_photo_path %></li>
                 <% else %>
+                    <li><%= link_to 'Galeria', photos_path %></li>
                     <li><%= link_to 'Zarządzanie użytkownikami', users_path %></li>
                     <li><%= link_to 'Dodaj nowy  przepis', new_recipe_path %></li>
                 <% end %>
