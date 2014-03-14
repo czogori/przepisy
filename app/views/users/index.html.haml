@@ -1,0 +1,7 @@
+%ul.list-group
+  - @users.each do |user|
+    %li.list-group-item
+      = gravatar_image_tag(user.email)
+      = link_to user.email, user
+      = link_to 'Usuń', user, method: :delete, data: { confirm: 'Jesteś pewny, że chcesz usunąć przepis?' }, class: "btn btn-danger btn-xs pull-right"
+      = link_to 'Edytuj', edit_user_path(user), class: "btn btn-info btn-xs pull-right"

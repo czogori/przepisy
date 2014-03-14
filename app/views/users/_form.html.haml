@@ -1,0 +1,20 @@
+- if @user.errors.any?
+  - @user.errors.full_messages.each do |msg|
+    %li= msg
+= form_for @user, html: {class: "form-horizontal"} do |f|
+  .form-group
+    %label.col-sm-2.control-label{for: "name"} Emial
+    .col-sm-10
+      =f.text_field :email, class: "form-control input-lg", placeholder: "Email"
+  .form-group
+    %label.col-sm-2.control-label{for: "name"} Hasło
+    .col-sm-10
+      =f.password_field :password, class: "form-control input-lg", placeholder: "Hasło"
+  .form-group
+    %label.col-sm-2.control-label{for: "name"} Powtórz hasło
+    .col-sm-10
+      =f.password_field :password_confirmation, class: "form-control input-lg", placeholder: "Hasło"
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      %button.btn.btn-primary{type: "submit"} Zapisz
+      = link_to 'Anuluj', users_path, class: "btn btn-default"
