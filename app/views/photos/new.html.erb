@@ -1,7 +1,0 @@
-<%= form_for @photo, :url => photos_path, :html => { :multipart => true } do |form| %>
-   	<div class="form-group">
-    	<%= form.file_field :image %>
-  	</div>
-  	<%= submit_tag 'Zapisz', class: 'btn btn-primary' %>
-  	<%=link_to 'Anuluj', photos_path, class: "btn btn-default" %>
-<% end %>
