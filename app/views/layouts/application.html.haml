@@ -1,0 +1,49 @@
+!!!
+%html{lang: "pl"}
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %meta{content: "", name: "description"}/
+    %meta{content: "czogori", name: "author"}/
+    %title Przepisy
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application", controller_name
+    = csrf_meta_tags
+  %body
+    .container
+      - if user_signed_in?
+        .header
+          %nav.navbar.navbar-default{role: "navigation"}
+            .navbar-header
+              %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-5", "data-toggle" => "collapse", type: "button"}
+                %span.sr-only Toggle navigation
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+              = link_to 'Przepisy', root_path, class: "navbar-brand"
+            #bs-example-navbar-collapse-5.collapse.navbar-collapse
+              %ul.nav.nav-pills.pull-right
+                - if request.original_url =~ /users/
+                  %li= link_to 'Dodaj nowego użytkownika', new_user_path
+                - elsif request.original_url =~ /photos/
+                  %li= link_to 'Dodaj nowe zdjęcie', new_photo_path
+                - else
+                  %li= link_to 'Galeria', photos_path
+                  %li= link_to 'Zarządzanie użytkownikami', users_path
+                  %li= link_to 'Dodaj nowy  przepis', new_recipe_path
+                %li= link_to 'Wyloguj', sign_out_path
+        - unless notice.blank?
+          .alert.alert-success.alert-dismissable
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} ×
+            %p#notice= notice
+        - unless alert.blank?
+          .alert.alert-error.alert-dismissable
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} ×
+            = alert
+        = yield
+      - else
+        .row
+          .col-md-6.col-md-offset-3= yield
+      .footer{style: "text-align:center"}
+        %p © czogori 2014
